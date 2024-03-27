@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Include your head partial here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game List</title>
+    <style>
+        /* CSS styles directly embedded in the HTML */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #007bff;
+        }
+        
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .game-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Video Games List</h1>
-  <ul>
-    <% games.forEach(function(game) { %>
-      <li>
-        <h2><%= game.name %></h2>
-        <p>Genre: <%= game.genre %></p>
-        <p>Platform: <%= game.platform %></p>
-        <p>Developer: <%= game.developer %></p>
-        <p>Release Date: <%= game.release_date.toDateString() %></p>
-      </li>
-    <% }) %>
-  </ul>
+    <div class="game-container">
+        <h1>Video Game List</h1>
+        <div class="game-list-container">
+            <% if (games && games.length > 0) { %>
+                <ul class="game-list">
+                    <% games.forEach(game => { %>
+                        <li class="game-item">
+                            <h2><%= game.name %></h2>
+                            <p>Genre: <%= game.genre %></p>
+                            <p>Platform: <%= game.platform %></p>
+                            <p>Developer: <%= game.developer %></p>
+                            <p>Release Date: <%= game.release_date %></p>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>No games to display.</p>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>
