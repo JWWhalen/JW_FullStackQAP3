@@ -4,54 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Game List</title>
-    <style>
-        /* CSS styles directly embedded in the HTML */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
-        }
-        
-        h1 {
-            color: #007bff;
-        }
-        
-        .game-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .game-list {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .game-item {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            margin-bottom: 10px;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="game-container">
+    <div class="container">
         <h1>Video Game List</h1>
+
+        <!-- Button to add a new game -->
+        <div class="form-group">
+            <a href="/games/new" class="button">Add New Game</a>
+        </div>
+
         <div class="game-list-container">
             <% if (games && games.length > 0) { %>
                 <ul class="game-list">
                     <% games.forEach(game => { %>
-                        <li class="game-item">
+                        <li class="game-item card">
                             <h2><%= game.name %></h2>
                             <p>Genre: <%= game.genre %></p>
                             <p>Platform: <%= game.platform %></p>
                             <p>Developer: <%= game.developer %></p>
-                            <p>Release Date: <%= game.release_date %></p>
+                            <p>Release Date: <%= new Date(game.release_date).toDateString() %></p>
+                            
+                            <div class="form-group">
+                                <a href="/games/edit/<%= game.game_id %>" class="button">Edit</a>
+                            
+                                <form action="/games/delete/<%= game.game_id %>" method="POST" style="display: inline;">
+                                    <button type="submit" class="button">Delete</button>
+                                </form>
+                            </div>
                         </li>
                     <% }) %>
                 </ul>

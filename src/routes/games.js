@@ -73,13 +73,27 @@ router.post('/update/:id', async (req, res) => {
 });
 
 // Route to delete a game
-router.get('/delete/:id', async (req, res) => {
+
+
+router.post('/delete/:id', async (req, res) => {
   try {
     await gamesDAL.deleteGame(req.params.id);
     res.redirect('/games');
   } catch (error) {
     console.error('Error deleting game:', error);
     res.status(500).send(error.message);
+  }
+});
+
+
+// Route to fetch all games as JSON data (REST API)
+router.get('/api/games', async (req, res) => {
+  try {
+    const games = await gamesDAL.getAllGames();
+    res.json(games);
+  } catch (error) {
+    console.error('Error fetching games:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

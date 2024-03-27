@@ -4,35 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= game.name %></title>
-    <style>
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
-        }
-        
-        h1 {
-            color: #007bff;
-        }
-        
-        .game-details {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="games-container"> <!-- Add the games-container class -->
-    <h1><%= game.name %></h1>
-    <p>Genre: <%= game.genre %></p>
-    <p>Platform: <%= game.platform %></p>
-    <p>Developer: <%= game.developer %></p>
-    <p>Release Date: <%= game.release_date %></p>
-    <a href="/games">Back to Game List</a>
+<body>
+    <div class="container">
+        <div class="card game-details">
+            <h1><%= game.name %></h1>
+            <p>Genre: <%= game.genre %></p>
+            <p>Platform: <%= game.platform %></p>
+            <p>Developer: <%= game.developer %></p>
+            <p>Release Date: <%= game.release_date %></p>
+            <a href="/games" class="button">Back to Game List</a>
+        </div>
+    </div>
 </body>
+
 </html>

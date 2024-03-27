@@ -3,39 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Game</title>
+    <title>Edit Game - <%= game.name %></title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Add New Video Game</h1>
-        <form action="/games" method="POST" class="card">
+        <h1>Edit Game - <%= game.name %></h1>
+        <form action="/games/update/<%= game.game_id %>" method="post" class="card">
             <div class="form-group">
                 <label for="name">Game Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="<%= game.name %>" required>
             </div>
 
             <div class="form-group">
                 <label for="genre">Genre:</label>
-                <input type="text" id="genre" name="genre" required>
+                <input type="text" id="genre" name="genre" value="<%= game.genre %>" required>
             </div>
 
             <div class="form-group">
                 <label for="platform">Platform:</label>
-                <input type="text" id="platform" name="platform" required>
+                <input type="text" id="platform" name="platform" value="<%= game.platform %>" required>
             </div>
 
             <div class="form-group">
                 <label for="developer">Developer:</label>
-                <input type="text" id="developer" name="developer">
+                <input type="text" id="developer" name="developer" value="<%= game.developer %>">
             </div>
 
             <div class="form-group">
                 <label for="release_date">Release Date:</label>
-                <input type="date" id="release_date" name="release_date">
+                <input type="date" id="release_date" name="release_date" value="<%= game.release_date.toISOString().split('T')[0] %>">
             </div>
 
-            <button type="submit" class="button">Add Game</button>
+            <button type="submit" class="button">Update Game</button>
         </form>
         <a href="/games" class="button">Back to Game List</a>
     </div>
