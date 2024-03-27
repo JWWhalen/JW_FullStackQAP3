@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Include your head partial here -->
+</head>
+<body>
+  <h1>Video Games List</h1>
+  <ul>
+    <% games.forEach(function(game) { %>
+      <li>
+        <h2><%= game.name %></h2>
+        <p>Genre: <%= game.genre %></p>
+        <p>Platform: <%= game.platform %></p>
+        <p>Developer: <%= game.developer %></p>
+        <p>Release Date: <%= game.release_date.toDateString() %></p>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

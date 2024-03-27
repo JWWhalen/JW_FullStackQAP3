@@ -1,0 +1,9 @@
+As a video gamer, I can see a web page listing all the video_games from the database.
+
+As a video game reviewer, I can fetch all the video_games from the database from a REST API. The records will be returned as JSON data.
+
+As a video game store manager, I can see a web page that will allow me to add a new game to the video_games table of the database.
+
+As a game developer, I can update a video game's details through a web form that submits to the REST API.
+
+As an admin, I can delete a video game from the database through the web interface.
